@@ -3253,7 +3253,7 @@ static const char* _fcntl_cmdstr(int cmd)
 
 static const char* _futex_op_str(int op)
 {
-    switch (op & ~FUTEX_PRIVATE)
+    switch (op & ~(FUTEX_PRIVATE | FUTEX_CLOCK_REALTIME))
     {
         case FUTEX_WAIT:
             return "FUTEX_WAIT";
@@ -3275,6 +3275,8 @@ static const char* _futex_op_str(int op)
             return "FUTEX_TRYLOCK_PI";
         case FUTEX_WAIT_BITSET:
             return "FUTEX_WAIT_BITSET";
+        case FUTEX_WAKE_BITSET:
+            return "FUTEX_WAKE_BITSET";
         default:
             return "UNKNOWN";
     }
@@ -5033,6 +5035,8 @@ static long _syscall(void* args_)
             long arg = (long)x4;
             int* uaddr2 = (int*)x5;
             int val3 = (int)x6;
+
+            // (void)_futex_op_str;
 
             _strace(
                 n,
