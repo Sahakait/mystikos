@@ -1,0 +1,12 @@
+{
+    "Debug": 1,
+    "StackMemSize": "800k",
+    "NumUserThreads": 8,
+    "ProductID": 1,
+    "SecurityVersion": 1,
+    "UserMemSize": "1024m",
+    "CurrentWorkingDirectory": "/app",
+    "ApplicationPath": "/home/user/miniconda/bin/python3",
+    "ApplicationParameters": ["/app/app.py"],
+    "HostEnvironmentVariables": ["LD_LIBRARY_PATH"]
+}
